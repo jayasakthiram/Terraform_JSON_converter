@@ -35,8 +35,7 @@
 ~~~  
 ---
 ## Workflow Diagram
-![Design View](https://github.com/mynameisjai/Terraform_JSON_converter/blob/main/Slide1.PNG?raw=true)
-
+![Design View](https://github.com/mynameisjai/Terraform_JSON_converter/blob/main/media/Terraform_json.PNG?raw=true)
 ---
 ### Prerequisite
 - Define the paths of the following in the py script:-
