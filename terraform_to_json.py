@@ -1,11 +1,16 @@
+#Required Libraries
 import json
 import hcl2
 import re
 
+#set the input and output paths
 terraform_variable_file = 'filepath/terraform.tf'
 output_file = 'output/filepath/filename.json'
+
+#The list that holds the JSON
 output_json = []
 
+#Method that stores result in a JSON file
 def write_template(template,output_file):
     with open(output_file, 'w') as json_file:
         json.dump(template, json_file,indent=4)
@@ -13,6 +18,7 @@ def write_template(template,output_file):
           output_file, 
           "\n\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     
+#Calculations on defining the properties
 def allowed_values(v):
     for l in v['validation'][0]['condition']:
         l =re.sub("[\$\{\}=\" ]", "", l)
@@ -94,7 +100,10 @@ def conversion():
             check_fields(k, v)
 
     write_template(output_json, output_file)
+#Code begins here
 if __name__ == "__main__":
     conversion()
+    #Output_JSON list is cleared after successfull creation of JSON file as it is a global variable
     output_json.clear()
+    
 
